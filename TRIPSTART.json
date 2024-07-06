@@ -1,0 +1,43 @@
+{
+   "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tripId": {
+          "type": "string"
+        },
+        "fleetId": {
+          "type": "string"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "startTimeUTC": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tripId",
+        "fleetId",
+        "driverId",
+        "startTimeUTC"
+      ]
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "payload",
+    "trigger",
+    "webhookTriggerId",
+    "attemptIndex"
+  ]
+}

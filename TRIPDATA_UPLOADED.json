@@ -1,0 +1,75 @@
+{
+ "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tripId": {
+          "type": "string"
+        },
+        "fleetId": {
+          "type": "string"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "tripDistance": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "eventCount": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "total"
+          ]
+        },
+        "customEventCount": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "total"
+          ]
+        }
+      },
+      "required": [
+        "tripId",
+        "fleetId",
+        "driverId",
+        "assetId",
+        "tripDistance",
+        "duration",
+        "eventCount",
+        "customEventCount"
+      ]
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "payload",
+    "trigger",
+    "webhookTriggerId",
+    "attemptIndex"
+  ]
+}

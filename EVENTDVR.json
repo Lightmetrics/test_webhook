@@ -1,0 +1,34 @@
+{
+	"type": "object",
+	"properties": {
+		"tripId": {
+			"type": "string"
+		},
+		"fleetId": {
+			"type": "string"
+		},
+		"eventIndex": {
+			"type": "string"
+		},
+		"driverId": {
+			"type": "string"
+		},
+		"assetId": {
+			"type": "string"
+		},
+		"deviceId": {
+			"type": "string"
+		},
+		"cameraType": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"tripId",
+		"fleetId",
+		"eventIndex",
+		"deviceId",
+		"cameraType",
+		"assetId"
+	]
+}

@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "fleetId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "streamRequestId": {
+          "type": "string"
+        },
+                "startTimeUTC": {
+          "type": "string"
+        },
+                "endTimeUTC": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fleetId",
+        "status",
+        "deviceId",
+        "streamRequestId"
+
+      ]
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    },
+    "trigger": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload",
+    "webhookTriggerId",
+    "attemptIndex",
+    "trigger"
+  ]
+}

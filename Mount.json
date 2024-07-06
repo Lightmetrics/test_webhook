@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tripId": {
+          "type": "string"
+        },
+        "fleetId": {
+          "type": "string"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "eventIndex": {
+          "type": "integer"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        },
+        "timestampUTC": {
+          "type": "string"
+        },
+        "cameraType": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "tripId",
+        "fleetId",
+        "driverId",
+        "eventIndex",
+        "assetId",
+        "deviceId",
+        "timestampUTC",
+        "cameraType",
+        "latitude",
+        "longitude"
+      ]
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    },
+    "trigger": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload",
+    "webhookTriggerId",
+    "attemptIndex",
+    "trigger"
+  ]
+}

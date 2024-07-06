@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "downloadRequestId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "reportType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "downloadRequestId",
+        "status",
+        "reportType"
+      ]
+    }
+  },
+  "required": [
+    "webhookTriggerId",
+    "trigger",
+    "attemptIndex",
+    "payload"
+  ]
+}

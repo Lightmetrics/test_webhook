@@ -1,0 +1,39 @@
+{
+   "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "uploadRequestId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "uploadRequestId",
+        "status",
+        "deviceId"
+      ]
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "payload",
+    "trigger",
+    "webhookTriggerId",
+    "attemptIndex"
+  ]
+}

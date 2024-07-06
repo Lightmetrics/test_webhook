@@ -1,0 +1,59 @@
+{
+	"type": "object",
+	"properties": {
+		"attemptIndex": {
+			"type": "integer"
+		},
+		"payload": {
+			"type": "object",
+			"properties": {
+				"assetId": {
+					"type": "string"
+				},
+				"deviceId": {
+					"type": "string"
+				},
+				"fleetId": {
+					"type": "string"
+				},
+				"ignitionId": {
+					"type": "string"
+				},
+				"timeZoneId": {
+					"type": "string"
+				},
+				"timestamp": {
+					"type": "string"
+				},
+				"timestampUTC": {
+					"type": "string"
+				},
+				"timezoneOffset": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"assetId",
+				"deviceId",
+				"fleetId",
+				"ignitionId",
+				"timeZoneId",
+				"timestamp",
+				"timestampUTC",
+				"timezoneOffset"
+			]
+		},
+		"trigger": {
+			"type": "string"
+		},
+		"webhookTriggerId": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"attemptIndex",
+		"payload",
+		"trigger",
+		"webhookTriggerId"
+	]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tripId": {
+          "type": "string"
+        },
+        "fleetId": {
+          "type": "string"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "endTimeUTC": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tripId",
+        "fleetId",
+        "driverId",
+        "endTimeUTC"
+      ]
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "payload",
+    "trigger",
+    "webhookTriggerId",
+    "attemptIndex"
+  ]
+}

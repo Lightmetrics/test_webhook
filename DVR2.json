@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "tripId": {
+          "type": "string"
+        },
+        "fleetId": {
+          "type": "string"
+        },
+        "driverId": {
+          "type": "string"
+        },
+        "eventIndex": {
+          "type": "integer"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "assetId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "uploadRequestId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tripId",
+        "fleetId",
+        "driverId",      
+        "assetId",
+        "status",
+        "uploadRequestId"
+      ]
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "payload",
+    "trigger",
+    "webhookTriggerId",
+    "attemptIndex"
+  ]
+}
