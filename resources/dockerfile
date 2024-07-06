@@ -1,0 +1,13 @@
+# Use a base image with Java and Maven to build the Karate project
+FROM maven:3.8.4-openjdk-11 AS builder
+
+# Set the working directory inside the container
+WORKDIR /karate
+
+# Copy the Karate project files to the container
+COPY . .
+
+# Build the Karate project
+#RUN mvn clean test   #-Dkarate.options="--tags @your_tags"
+#CMD ["java", "-jar", "./karate/karate.jar", "1Test_ReleaseAPI_Cobli.feature"]
+
