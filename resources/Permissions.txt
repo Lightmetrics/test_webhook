@@ -1,0 +1,10 @@
+sudo usermod -aG docker $USER
+chown <user>:<group> /path/to/file
+chmod <permissions> /path/to/file
+docker run -it -v "/home/user/Documents/karate":/karate --user <uid>:<gid> karatedocker sh
+
+
+FROM karatedocker
+
+# Set default user
+USER <username>
