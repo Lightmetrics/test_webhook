@@ -23,17 +23,8 @@
         "deviceId": {
           "type": "string"
         },
-        "timestampUTC": {
-          "type": "string"
-        },
         "cameraType": {
           "type": "string"
-        },
-        "latitude": {
-          "type": "number"
-        },
-        "longitude": {
-          "type": "number"
         }
       },
       "required": [
@@ -43,10 +34,7 @@
         "eventIndex",
         "assetId",
         "deviceId",
-        "timestampUTC",
         "cameraType",
-        "latitude",
-        "longitude"
       ]
     },
     "webhookTriggerId": {
