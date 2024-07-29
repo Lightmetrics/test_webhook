@@ -1,14 +1,20 @@
 from flask import Flask, request
 import json, jsonschema
 from flask import jsonify
+#from opentelemetry.instrumentation.flask import FlaskInstrumentor
+#from otel_config import trace
 
 app = Flask(__name__)
+
+# Instrument Flask
+#FlaskInstrumentor().instrument_app(app)
+
 
 IMG_SCHEMA_PATH = "Image.json"
 IGN_SCHEMA_PATH = "ignition.json"
 IGNOFF_SCHEMA_PATH = "IGNITION2.json"
 BADMOUNT_SCHEMA_PATH = "Mount.json"
-EVENTDVR_SCHEMA_PATH = "EVENTDVR.json"
+#EVENTDVR_SCHEMA_PATH = "EVENTDVR.json"
 EVENTUPLOAD_SCHEMA_PATH = "EVENT.json"
 TRIPSTART_SCHEMA_PATH = "TRIPSTART.json"
 TRIPEND_SCHEMA_PATH = "TRIPEND.json"
@@ -62,8 +68,9 @@ def ignition_webhook():
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"Ignition Schema Failed3")
     return 'OK'
-    
-@app.route('/IGNTIONOFF', methods=['POST'])
+
+""" 
+@app.route('/IGNITIONOFF', methods=['POST'])
 def ignitionOff_webhook():
     data = request.get_json()
     print("Webhook received:", data)
@@ -75,6 +82,7 @@ def ignitionOff_webhook():
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"IgnitionOFF Schema Failed3")
     return 'OK'
+"""
 
 @app.route('/MOUNT', methods=['POST'])
 def mounting_webhook():
@@ -89,6 +97,7 @@ def mounting_webhook():
         print(f"Mounting Schema Failed4")
     return 'OK'
 
+"""
 @app.route('/EVENTDVR', methods=['POST'])
 def eDVR_webhook():
     data = request.get_json()
@@ -101,6 +110,7 @@ def eDVR_webhook():
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"eventDVR Schema Failed5")
     return 'OK'
+"""
 
 @app.route('/TRIP_START', methods=['POST'])
 def tripstart_webhook():
@@ -225,4 +235,4 @@ def async_webhook():
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000, debug=True)
