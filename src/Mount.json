@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "payload": {
@@ -23,8 +22,17 @@
         "deviceId": {
           "type": "string"
         },
+        "timestampUTC": {
+          "type": "string"
+        },
         "cameraType": {
           "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
         }
       },
       "required": [
@@ -34,7 +42,10 @@
         "eventIndex",
         "assetId",
         "deviceId",
+        "timestampUTC",
         "cameraType",
+        "latitude",
+        "longitude"
       ]
     },
     "webhookTriggerId": {
