@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Use a Maven image for building the project
 FROM maven:3.8-openjdk-17 AS build
 
@@ -28,6 +29,8 @@ COPY --from=build /app/target/*.jar karate.jar
 ENTRYPOINT ["java", "-jar", "karate.jar"]
 ENTRYPOINT ["java", "-jar", "karate.jar", "-Dkarate.env=qa"]
 =======
+=======
+>>>>>>> Stashed changes
 #FROM python:3.11-slim
 FROM python:3.11-alpine
 
@@ -49,4 +52,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD ["python", "app.py"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
