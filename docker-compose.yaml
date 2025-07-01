@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  karate-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: karate-tests-container
+    entrypoint: ["java", "-jar", "karate.jar"]
+    volumes:
+      # Mount a local directory for test reports
+      - ./reports:/app/reports
+    environment:
+      # Set any environment variables for Karate
+      KARATE_ENV: qa
+    # Optionally remove the container after i
