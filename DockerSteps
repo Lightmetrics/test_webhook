@@ -1,0 +1,3 @@
+curl -X POST https://a5c3-182-156-22-163.ngrok-free.app/LIVESTREAM -H "Content-Type: application/json" -d "{\"payload\":{\"fleetId\":\"AA-Testing\",\"status\":\"FINISHED\",\"deviceId\":\"862798050366877\",\"streamRequestId\":\"L2025_06_02T02_51_47_276Z_R0_1297539233007614\",\"startTimeUTC\":\"2025-06-02T02:51:56.489Z\"},\"webhookTriggerId\":\"LSU-L2025_06_02T02_51_47_276Z_R0_1297539233007614-1f871641a55f43178f90e32394dae86e-FINISHED\",\"attemptIndex\":4,\"trigger\":\"LIVESTREAM_STATUS_UPDATE\"}"
+
+sudo docker run --net=host -p 5001:5001 -it -e NGROK_AUTHTOKEN=AA ngrok/ngrok:latest http  https://localhost:5001
