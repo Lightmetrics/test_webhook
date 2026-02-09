@@ -3,7 +3,8 @@ import json, jsonschema
 from flask import jsonify
 #from opentelemetry.instrumentation.flask import FlaskInstrumentor
 #from otel_config import trace
-
+import logging
+from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 
 # Instrument Flask
@@ -24,6 +25,22 @@ DVR2_SCHEMA_PATH = "DVR2.json"
 DVR3_SCHEMA_PATH = "DVR3.json"
 LIVESTREAM_SCHEMA_PATH = "LIVESTREAM.json"
 ASYNC_SCHEMA_PATH = "ASYNC.json"
+INSTALL_SCHEMA_PATH ="INSTALL.json"
+SCHEDULE_SCHEMA_PATH ="SCHEDULE.json"
+# Setup log rotation
+def setup_logger():
+    # Define log format
+    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    # Create a RotatingFileHandler
+    log_file = 'server.log'
+    handler = RotatingFileHandler(
+        log_file, maxBytes=5 * 1024 * 1024, backupCount=3
+    )
+    handler.setLevel(logging.INFO)
+    handler.setFormatter(logging.Formatter(log_format))
+
+    # Attach the handler to Flask's default logger
+    app.logger.addHandler(handler)
 
 def validate_Response(response_data, schema_path):
     with open(schema_path) as schema_file:
@@ -49,6 +66,12 @@ def image_webhook():
         return jsonify({"status": "success"})
         print(f"Image Schema Matched!")
         #logging.info(f"Validated response: {data}")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
 
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
@@ -64,6 +87,13 @@ def ignition_webhook():
     if validate_Response(data, IGN_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"Ignition Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"Ignition Schema Failed3")
@@ -120,6 +150,13 @@ def tripstart_webhook():
     if validate_Response(data, TRIPSTART_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"TripStart Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"TripStart Schema Failed6")
@@ -133,6 +170,13 @@ def tripend_webhook():
     if validate_Response(data, TRIPEND_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"TripEnd Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"TripEnd Schema Failed7")
@@ -161,6 +205,13 @@ def event_webhook():
     if validate_Response(data, EVENTUPLOAD_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"EVENTDATA_UPLOADED Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"EVENTDATA_UPLOADED Schema Failed8")
@@ -174,9 +225,17 @@ def DVR_webhook():
     if validate_Response(data, DVR_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"DVR Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"DVR Schema Failed9")
+        
     return 'OK'
 
 @app.route('/DVR2', methods=['POST'])
@@ -187,6 +246,13 @@ def DVR2_webhook():
     if validate_Response(data, DVR2_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"DVR2 Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"DVR2 Schema Failed10")
@@ -201,11 +267,37 @@ def DVR3_webhook():
     if validate_Response(data, DVR3_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"DVR3 Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"DVR3 Schema Failed11")
     return 'OK'
 
+
+@app.route('/INSTALL', methods=['POST'])
+def INSTALL_webhook():
+    data = request.get_json()
+    print("Webhook received:", data)
+     # Validate the response against the schema
+    if validate_Response(data, INSTALL_SCHEMA_PATH):
+        return jsonify({"status": "success"})
+        print(f"INSTALL Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+    else:
+        return jsonify({"status": "error", "message": "Invalid response schema"}), 400
+        print(f"INSTALL Schema Failed!")
+    return 'OK'
 
 @app.route('/LIVESTREAM', methods=['POST'])
 def LIVESTREAM_webhook():
@@ -215,6 +307,12 @@ def LIVESTREAM_webhook():
     if validate_Response(data, LIVESTREAM_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"LIVESTREAM Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"LIVESTREAM Schema Failed11")
@@ -228,11 +326,39 @@ def async_webhook():
     if validate_Response(data, ASYNC_SCHEMA_PATH):
         return jsonify({"status": "success"})
         print(f"Async Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
     else:
         return jsonify({"status": "error", "message": "Invalid response schema"}), 400
         print(f"Async Schema Failed4")
     return 'OK'
 
 
+@app.route('/SCHEDULE', methods=['POST'])
+def async_webhook():
+    data = request.get_json()
+    print("Webhook received:", data)
+     # Validate the response against the schema
+    if validate_Response(data, SCHEDULE_SCHEMA_PATH):
+        return jsonify({"status": "success"})
+        print(f"Sched Schema Success")
+        app.logger.info(f"Request: method={request.method}, path={request.path}, IP={request.remote_addr}")
+        # Simulate some processing (replace with real logic)
+        time.sleep(0.5)
+        # Log request completion and timing
+        execution_time = time.time() - start_time
+        app.logger.info(f"Completed {request.path} in {execution_time:.3f} seconds")
+
+    else:
+        return jsonify({"status": "error", "message": "Invalid response schema"}), 400
+        print(f"Sched Schema Failed4")
+    return 'OK'
+
 if __name__ == '__main__':
+    app.logger.setLevel(logging.INFO)
     app.run(port=5000, debug=True)
