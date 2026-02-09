@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "payload": {
+      "type": "object",
+      "properties": {
+        "scheduleId": {
+          "type": "string"
+        },
+        "reportType": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "scheduleId",
+        "reportType",
+        "status",
+        "downloadUrl"
+      ]
+    },
+    "webhookTriggerId": {
+      "type": "string"
+    },
+    "attemptIndex": {
+      "type": "integer"
+    },
+    "trigger": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload",
+    "webhookTriggerId",
+    "attemptIndex",
+    "trigger"
+  ]
+}
