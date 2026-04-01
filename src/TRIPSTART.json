@@ -33,8 +33,7 @@
         "driverId",
         "assetId",
         "deviceId",
-        "startTimeUTC",
-        "endTimeUTC"
+        "startTimeUTC"
       ]
     },				
     "webhookTriggerId": {
